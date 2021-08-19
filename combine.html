@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  body{
+  align-items: center;
+}
+
+
+h1{
+  text-transform: uppercase ; font-size: 20px; color: rgb(0, 0, 0);
+}
+h2{
+  text-transform: uppercase ; color: rgb(0, 0, 0);
+}
+b{
+  text-transform: uppercase ; color: rgb(0, 0, 0);
+}
+
+button {
+  width: 15%; height: 60px; border-radius: 50px;
+  background: linear-gradientlinear-(60deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  text-transform: uppercase ; font-size: 15px; color: rgb(0, 0, 0);
+  background-size: 400%; position: relative;
+}
+
+button::before {
+  content:""; position: absolute; left:-5px;
+  top: -5px; bottom: -5px; right: -5px;
+  background: linear-gradient(60deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  z-index: -1; border-radius: 40px;filter: blur(20px);
+  background-size: 400%;
+}
+button:hover::before {
+  animation: hello 8s infinite;
+}
+button:hover {
+  animation: hello 8s infinite;
+  cursor: pointer;
+}
+@keyframes hello {
+  100%{
+      background-position: -400% 0;
+  }
+}
+  
+
+.slidecontainer {
+  width: 75%;
+}
+
+
+
+.slider {
+  -webkit-appearance: none;
+  width: 75%;
+  height: 15px;
+  border-radius: 5px;
+  background: linear-gradient(60deg, #03a9f4, #f441a5);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: linear-gradient(60deg, #d0f403, #41a3f4, #e003f4);
+  cursor: pointer;
+  background-size: 100%; position: relative;
+}
+button::before {
+  content:""; position: absolute; left:-5px;
+  top: -5px; bottom: -5px; right: -5px;
+  background: linear-gradient(60deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  z-index: -1; border-radius: 40px;filter: blur(20px);
+  background-size: 400%;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #0483aa;
+  cursor: pointer;
+}
+  
+  </style>
+
+</head>
+<body>
+<iframe name="frame" id="frame" style="display: none;"></iframe>
+
+<center>
+  <form action="final.php" method="post">
+
+    <h2>CONTROL PANEL</h2>
+    <b>motor1</b>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="180" value="90" class="slider" id="myRange" name="motor1" required>
+      <span id="demo"></span>
+    </div>
+    
+    <br>
+    <b>motor2</b>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="180" value="90" class="slider"  id="myRange2" name="motor2" required>
+      <span id="demo2"></span>
+    </div>
+    
+    <br>
+    <b>motor3</b>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="180" value="90" class="slider" id="myRange3" name="motor3" required>
+      <span id="demo3"></span>
+      </div>
+    
+    <br>
+    <b>motor4</b>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="180" value="90" class="slider" id="myRange4" name="motor4" required>
+      <span id="demo4"></span>
+      </div>
+    
+    <br>
+    <b>motor5</b>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="180" value="90" class="slider" id="myRange5" name="motor5" required>
+      <span id="demo5"></span>
+      </div>
+        
+    <br>
+    <b>motor6</b>
+    <div class="slidecontainer">
+       <input type="range" min="1" max="180" value="90" class="slider" id="myRange6" name="motor6" required>
+       <span id="demo6"></span>
+       </div>
+    
+    <br><br>
+    
+    
+    </form>
+
+<form action="final.php" method="post" target="frame">
+<br><br>
+
+<br><br><br>
+
+<div>
+  <button  type="submit" value="up"  id="forward" name="forward" required>
+  <span id="demo"></span>forward </button>
+</div>
+
+<br>
+
+  
+  <button type="submit"  value="Left"  id="Left" name="left" required>
+  <span id="demo2"></span>Left </button> &nbsp; 
+
+
+
+<button type="submit"  value="stop"  id="Stop" name="stop" required>
+  <span id="demo3"></span>Stop </button> &nbsp; 
+
+ &nbsp;
+
+
+<button type="submit"  value="right"  id="Right" name="right" required>
+  <span id="demo4"></span>Right </button>
+
+
+<br><br>
+<button type="submit"  value="down"  id="backward" name="backward" required>
+  <span id="demo5"></span>down </button>
+
+<br><br><br><br><br><br><br><br>
+</form>
+<table>
+  <tr>
+<form action="result.php" method="post" >
+<button type="submit" value="Submit">  Save </button>
+</form>
+&nbsp;&nbsp;</tr>
+<tr>
+&nbsp;
+<form name="formArm" method="post" action="final.php">
+<button type="submit" value="Submit">  Run </button>
+</form>
+</tr>
+</table>
+</center>
+<script>
+  window.watsonAssistantChatOptions = {
+      integrationID: "e613bf28-3039-445e-b07b-b21c88a03b0c", // The ID of this integration.
+      region: "eu-de", // The region your integration is hosted in.
+      serviceInstanceID: "1fdf81f3-5d05-4188-9c54-a69f4b3e780d", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+    document.head.appendChild(t);
+  });
+</script>
+</body>
+<script src="Action.js"></script>
+</html>
